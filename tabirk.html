@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Typing Animation</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #121212;
+      color: #00ffcc;
+      font-family: 'Courier New', monospace;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      text-align: left;
+      max-width: 800px;
+      width: 100%;
+      border-left: 4px solid #00ffcc;
+      padding-left: 20px;
+    }
+
+    .line {
+      font-size: 20px;
+      line-height: 1.6;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+
+    @media (max-width: 600px) {
+      .line {
+        font-size: 16px;
+      }
+    } button{
+      height: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="text-container"></div> 
+<footer>
+  <a href="./Nodira.html"><button style="border-radius: 10px; width: 100px;  border: none; background-color: aqua;">back</button></a>
+</footer>
+  <script>
+    const lines = [
+      "Hello my brilliant Teacher.",
+      "Thank you for your help to teaching so hard, and very polite teaching.",
+      "I had never seen a teacher who teached so hard like you.",
+      "I wish one day you achieve your dreams.",
+      "And teacher, I created a website for you — you can use the website for your daily work."
+    ];
+let btm = document.querySelector('button')
+    const container = document.getElementById("text-container");
+    let lineIndex = 0;
+    let charIndex = 0;
+
+    function typeLine() {
+      if (lineIndex < lines.length) {
+        let currentLine = document.getElementById(`line-${lineIndex}`);
+        if (!currentLine) {
+          currentLine = document.createElement("div");
+          currentLine.className = "line";
+          currentLine.id = `line-${lineIndex}`;
+          container.appendChild(currentLine);
+        }
+
+        currentLine.textContent += lines[lineIndex].charAt(charIndex);
+        charIndex++;
+
+        if (charIndex < lines[lineIndex].length) {
+          setTimeout(typeLine, 35);
+        } else {
+          charIndex = 0;
+          lineIndex++;
+          setTimeout(typeLine, 400); // keyingi qatordan oldin biroz pauza
+        }
+      }
+    } btm.addEventListener('click',()=>{
+      btm.style.background = 'red'
+      btm.style.border = '1px solid aqua'
+    } )
+
+    window.onload = typeLine;
+  </script>
+</body>
+</html>

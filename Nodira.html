@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome Animation</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #e0f7fa, #fff);
+      font-family: 'Courier New', Courier, monospace;
+      display: flex;
+      justify-content: center;
+      align-items: start;
+      animation: fadeBody 2s ease-in-out;
+      
+     
+    }
+
+    @keyframes fadeBody {
+      from {
+        opacity: 0;
+        transform: scale(0.98);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    header {
+      margin-top: 50px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .typing-text {
+      font-size: 2rem;
+      color: white;
+      /* border-right: 2px solid #333; */
+      white-space: nowrap;
+      overflow: hidden;
+      width: 0;
+      animation: typing 4s steps(40, end) forwards,blink  0.7s step-end infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 30ch; } /* 33ta belgigacha yozadi */
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    } 
+  body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      font-family: 'Courier New', Courier, monospace;
+      display: flex;
+      justify-content: center;
+      align-items: start;
+      animation: bgCycle 4s infinite alternate;
+      transition: background 1s ease-in-out;
+    }
+
+    @keyframes bgCycle {
+      0% {
+        background: linear-gradient(135deg, red, blue);
+      }
+      50% {
+        background: linear-gradient(135deg, #495693, #950e9e);
+      }
+      100% {
+        background: linear-gradient(135deg, #80deea, #56ab45);
+      }
+    }h1{
+        font-weight: bolder;
+    }
+     body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #e0f7fa, #ffffff);
+      height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .clock-background {
+      position: fixed;
+      top: 10px;
+      left: 20px;
+      font-size: 18px;
+      color: #ffffff;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 8px 16px;
+      border-radius: 8px;
+      z-index: 9999;
+      backdrop-filter: blur(3px);
+    }
+    nav{display: flex; justify-content: space-around;} 
+    a{text-decoration: none; color: gray;}
+    body{
+        background-image: url(./13666.gif);
+        animation: none; background-size: 100%;
+        color: white;
+    } a{color: white; transition: 0.3s ease-out;}
+    a:hover{
+      font-size: 20px;
+      color: red;
+    }@media (max-width: 400px) {
+  body {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
+  }
+
+  .box {
+    padding: 15px;
+    width: 90%;
+  }
+
+  header h1 {
+    font-size: 1.2rem;
+  }
+
+  input,
+  button {
+    font-size: 0.9rem;
+    height: 40px;
+    width: 100%;
+  }
+
+  img {
+    max-width: 150px;
+    height: auto;
+  }
+}/* 🟦 700px dan kichik ekranlar (o‘rtacha telefonlar) */
+@media (max-width: 700px) {
+  body {
+    flex-direction: column;
+    padding: 20px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
+  }
+
+  .container {
+    width: 90%;
+    padding: 15px;
+    border-radius: 15px;
+  }
+
+  h1 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+  }
+
+  input {
+    width: 100%;
+    height: 45px;
+    font-size: 1rem;
+  }
+
+  button {
+    width: 100%;
+    font-size: 1rem;
+    padding: 10px;
+  }
+}
+
+/* 🟩 400px dan kichik ekranlar (kichik telefonlar — Galaxy A22) */
+@media (max-width: 400px) {
+  h1 {
+    font-size: 1rem;
+  }
+
+  .container {
+    padding: 10px;
+    box-shadow: none;
+    border-radius: 10px;
+  }
+
+  input {
+    height: 40px;
+    font-size: 0.9rem;
+  }
+
+  button {
+    padding: 8px;
+    font-size: 0.9rem;
+    border-radius: 20px;
+  }
+
+  img {
+    width: 100%;
+    max-width: 140px;
+    height: auto;
+  }
+}
+
+
+
+  </style>
+</head>
+
+
+
+<body>
+
+  <header>
+    <div class="typing-text">Welcome Your web-page MsNodira</div> <br>
+    <nav>
+<a href="./tabirk.html">congratulations</a>
+<a href="./map.html">map</a>
+<a href="./dailylist.html">daly list</a>
+<a href="./kankulator.html">canculator</a>
+<a href="https://www.gutenberg.org" target="_blank">online Books</a>
+
+  <div class="clock-background" id="realTimeClock"></div>
+
+  
+ <script>
+    function updateClock() {
+      const now = new Date();
+
+      const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+      const months = ['January', 'February', 'March', 'April', 'May', 'June',
+                      'July', 'August', 'September', 'October', 'November', 'December'];
+
+      const day = days[now.getDay()];
+      const date = now.getDate();
+      const month = months[now.getMonth()];
+      const year = now.getFullYear();
+
+      const hours = String(now.getHours()).padStart(2, '0');
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const seconds = String(now.getSeconds()).padStart(2, '0');
+
+      const fullTime = `${day}, ${date} ${month} ${year} — ${hours}:${minutes}:${seconds}`;
+      document.getElementById('realTimeClock').textContent = fullTime;
+    }
+
+    setInterval(updateClock, 1000);
+    updateClock(); // sahifa yuklanganda darhol ko‘rsatish uchun
+  </script>
+
+</body>
+</html>
